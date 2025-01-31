@@ -1,7 +1,20 @@
 package com.bank;
 
-public class Account implements AccountService{
+import java.util.ArrayList;
+import java.util.List;
 
+
+public class Account implements AccountService{
+    private int balance;
+    private List<String> statement = new ArrayList<>();
+
+    public Account(int initBalance) {
+        this.balance = initBalance;
+    }
+
+    public int getBalance() {
+        return balance;
+    }
     @Override
     public void deposit(int amount) {
        throw new UnsupportedOperationException("Deposit operation not supported yet.");
