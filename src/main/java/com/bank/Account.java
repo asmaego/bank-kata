@@ -1,5 +1,6 @@
 package com.bank;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,18 +16,24 @@ public class Account implements AccountService{
     public int getBalance() {
         return balance;
     }
+
     @Override
     public void deposit(int amount) {
-       throw new UnsupportedOperationException("Deposit operation not supported yet.");
+        balance += amount;
+        statement.add(LocalDate.now() + " || " + amount+ " || "+balance);
     }
 
     @Override
     public void withdraw(int amount) {
-        throw new UnsupportedOperationException("Withdraw operation not supported yet.");
+        balance -= amount;
+        statement.add(LocalDate.now() + " || -" + amount+ " || "+balance);
     }
 
     @Override
     public void printStatement() {
-        throw new UnsupportedOperationException("Print operation not supported yet.");
+        System.out.println("Date || Amount || Balance");
+        for (int i = statement.size()-1; i >=0; i--) {
+            System.out.println(statement.get(i));
+        }
     }
 }

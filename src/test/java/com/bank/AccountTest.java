@@ -18,18 +18,18 @@ public class AccountTest {
         account.deposit(100);
         account.deposit(130);
 
-        assertEquals(130, account.getBalance(), "Balance should be 130 after deposit");
+        assertEquals(230, account.getBalance(), "Balance should be 230 after deposit");
 
     }
 
     @Test
     public void accountWithdrawal() {
-        Account account = new Account(270);
+        Account account = new Account(200);
 
-        account.deposit(50);
-        account.deposit(110);
+        account.withdraw(50);
+        account.withdraw(100);
 
-        assertEquals(110, account.getBalance(), "Balance should be 110 after withdrawal");
+        assertEquals(50, account.getBalance(), "Balance should be 50 after withdrawal");
     }
 
     @Test
@@ -40,7 +40,7 @@ public class AccountTest {
         account.deposit(2000);
         account.withdraw(500);
 
-        assertEquals(2500, account.getBalance(), "Balance should be 500 after operations");
+        assertEquals(2500, account.getBalance(), "Balance should be 2500 after operations");
 
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputStream));
